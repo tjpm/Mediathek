@@ -8,7 +8,7 @@
  */
 class Videospiel implements Medium
 {
-    
+    //GIT Test Kommentar
 
     /**
      * Das System auf dem das Spiel läuft.

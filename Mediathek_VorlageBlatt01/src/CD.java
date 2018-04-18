@@ -13,7 +13,7 @@ class CD implements Medium
     private String _interpret;
 
     /**
-     * Die Spiellänge der CD in Minuten.
+     * Die Spiellänge der CD in Minuten
      */
     private int _spiellaenge;
 
