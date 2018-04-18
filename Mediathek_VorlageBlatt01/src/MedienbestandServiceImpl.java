@@ -58,15 +58,12 @@ class MedienbestandServiceImpl extends AbstractObservableService
         return _medienbestand.contains(medium);
     }
 
-    /**
-     * @require neuesMedium !=null
-     * 
-     * @ensure enthaeltMedium(neuesMedium)
-     */
+    
     @Override
     public void fuegeMediumEin(Medium neuesMedium)
     {
-    	assert neuesMedium != null : "Vorbedingung verletzt: neuesMedium != null";
+    	assert !enthaeltMedium(neuesMedium) : "Vorbedingung verletzt: !enthaeltMedium(neuesMedium)";
+    	
     	
         _medienbestand.add(neuesMedium);
 
