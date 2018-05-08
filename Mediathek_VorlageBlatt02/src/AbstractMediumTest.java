@@ -10,13 +10,11 @@ public abstract class AbstractMediumTest
 
 	protected static final String KOMMENTAR = "Kommentar";
 	protected static final String TITEL = "Titel";
-	protected Medium _medium1;
-	protected Medium _medium2;
+	
 
 	public AbstractMediumTest()
 	    {
-		_medium1 = getMedium();
-		_medium2 = getMedium();
+		
 	    }
 
 	
@@ -24,51 +22,47 @@ public abstract class AbstractMediumTest
 	@Test
 	public void testKonstruktor()
 	{
-		assertEquals(TITEL, _medium1.getTitel());
-		assertEquals(KOMMENTAR, _medium1.getKommentar());
+		assertEquals(TITEL, getMedium().getTitel());
+		assertEquals(KOMMENTAR, getMedium().getKommentar());
 		
 	}
 
 	@Test
 	public void testSetter()
 	{
-		_medium1.setTitel("Titel2");
-		assertEquals(_medium1.getTitel(), "Titel2");
-		_medium1.setKommentar("Kommentar2");
-		assertEquals(_medium1.getKommentar(), "Kommentar2");
+		getMedium().setTitel("Titel2");
+		assertEquals(getMedium().getTitel(), "Titel2");
+		getMedium().setKommentar("Kommentar2");
+		assertEquals(getMedium().getKommentar(), "Kommentar2");
 		
 	}
 
 	@Test
-	/*
-	 * Von ein und der selben CD kann es mehrere Exemplare geben, die von
-	 * unterschiedlichen Personen ausgeliehen werden können.
-	 */
 	public void testEquals()
 	{
-		assertFalse("Mehrere Exemplare der gleichen CD sind ungleich",
-				_medium1.equals(_medium2));
-		assertTrue("Dasselbe Exemplare der gleichen CD ist gleich",
-				_medium1.equals(_medium1));
+		assertFalse("Mehrere Exemplare des gleichen Mediums sind ungleich",
+				getMedium().equals(getMedium2()));
+		assertTrue("Dasselbe Exemplar des gleichen Mediums ist gleich",
+				getMedium().equals(getMedium()));
 	}
 
 	@Test
 	public final void testGetFormatiertenString()
 	{
-		Medium medium = getMedium();
-		assertNotNull(medium.getFormatiertenString());
+		
+		assertNotNull(getMedium().getFormatiertenString());
 	}
 
 	protected abstract Medium getMedium();
-	
+	protected abstract Medium getMedium2();
 
 	@Test
 	public void testMietkostenTest()
 	{
-		assertEquals(_medium1.berechneMietgebuehr(5), Geldbetrag.get(1500));
-		assertEquals(_medium1.berechneMietgebuehr(0), Geldbetrag.get(0));
-		assertEquals(_medium1.berechneMietgebuehr(3), Geldbetrag.get(900));
-		assertEquals(_medium1.berechneMietgebuehr(99), Geldbetrag.get(29700));
+		assertEquals(getMedium().berechneMietgebuehr(5), Geldbetrag.get(1500));
+		assertEquals(getMedium().berechneMietgebuehr(0), Geldbetrag.get(0));
+		assertEquals(getMedium().berechneMietgebuehr(3), Geldbetrag.get(900));
+		assertEquals(getMedium().berechneMietgebuehr(99), Geldbetrag.get(29700));
 	}
 
 }

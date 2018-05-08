@@ -112,10 +112,7 @@ class VerleihServiceImpl extends AbstractObservableService implements
             {
             	JOptionPane.showMessageDialog(null, "Rücknahme nicht möglich", pe.toString(), JOptionPane.ERROR_MESSAGE );
             }
-        	catch(IOException ioe)
-            {
-            	JOptionPane.showMessageDialog(null, "Rücknahme nicht möglich", ioe.toString(), JOptionPane.ERROR_MESSAGE );
-            }
+        	
             _verleihkarten.remove(medium);
         }
         informiereUeberAenderung();
@@ -174,10 +171,7 @@ class VerleihServiceImpl extends AbstractObservableService implements
             {
             	JOptionPane.showMessageDialog(null, "Verleihe nicht möglich", pe.toString(), JOptionPane.ERROR_MESSAGE );
             }
-            catch(IOException ioe)
-            {
-            	JOptionPane.showMessageDialog(null, "Rücknahme nicht möglich", ioe.toString(), JOptionPane.ERROR_MESSAGE );
-            }
+            
             _verleihkarten.put(medium, verleihkarte);
         }
 

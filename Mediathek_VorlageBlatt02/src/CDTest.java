@@ -12,11 +12,13 @@ public class CDTest extends AbstractMediumTest
     private static final int LAENGE = 100;
     protected static final String BEZEICHNUNG = "CD";
     
-
+    private CD _medium1;
+    private CD _medium2;
+    
     public CDTest()
     {
-    	_medium1 = getMedium();
-    	_medium2 = getMedium();
+    	_medium1 = new CD(TITEL, KOMMENTAR, INTERPRET, LAENGE);
+    	_medium2 = new CD(TITEL, KOMMENTAR, INTERPRET, LAENGE);
     }
 
     @Test
@@ -30,18 +32,18 @@ public class CDTest extends AbstractMediumTest
     public void testKonstruktor()
     {
         super.testKonstruktor();
-        assertEquals(LAENGE, ((CD) _medium1).getSpiellaenge());
-        assertEquals(INTERPRET, ((CD) _medium1).getInterpret());
+        assertEquals(LAENGE, _medium1.getSpiellaenge());
+        assertEquals(INTERPRET, _medium1.getInterpret());
     }
 
     @Test
     public final void testSetter()
     {
         super.testSetter();
-        ((CD) _medium1).setInterpret("Interpret2");
-        assertEquals(((CD) _medium1).getInterpret(), "Interpret2");
-        ((CD) _medium1).setSpiellaenge(99);
-        assertEquals(((CD) _medium1).getSpiellaenge(), 99);
+        _medium1.setInterpret("Interpret2");
+        assertEquals(_medium1.getInterpret(), "Interpret2");
+        _medium1.setSpiellaenge(99);
+        assertEquals(_medium1.getSpiellaenge(), 99);
     }
 
     
@@ -50,10 +52,13 @@ public class CDTest extends AbstractMediumTest
 
     protected CD getMedium()
     {
-        return new CD(TITEL, KOMMENTAR, INTERPRET, LAENGE);
+        return _medium1;
     }
     
-    
+    protected CD getMedium2()
+    {
+        return _medium2;
+    }
     
 
 }

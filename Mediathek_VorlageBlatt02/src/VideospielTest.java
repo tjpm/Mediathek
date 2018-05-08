@@ -10,10 +10,13 @@ public class VideospielTest extends AbstractMediumTest
 {
     private static final String SYSTEM = "System";
     protected static final String BEZEICHNUNG = "Videospiel";
-
+    private Videospiel _medium1;
+    private Videospiel _medium2;
+    
     public VideospielTest()
     {
-        _medium1 = getMedium();
+        _medium1 = new Videospiel(TITEL, KOMMENTAR, SYSTEM);
+        _medium2 = new Videospiel(TITEL, KOMMENTAR, SYSTEM);
     }
 
     @Test
@@ -37,16 +40,20 @@ public class VideospielTest extends AbstractMediumTest
     public void testKonstruktor()
     {
         super.testKonstruktor();
-        assertEquals(SYSTEM, ((Videospiel) _medium1).getSystem());
+        assertEquals(SYSTEM, _medium1.getSystem());
     }
 
    
 
     protected Videospiel getMedium()
     {
-        return new Videospiel(TITEL, KOMMENTAR, SYSTEM);
+        return _medium1;
     }
 
+    protected Videospiel getMedium2()
+    {
+        return _medium2;
+    }
     
 
     

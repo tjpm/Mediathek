@@ -15,12 +15,12 @@ public class VerleihProtokollierer
 	 * @require ereignis != null
 	 */
 	
-	public void protokolliere(String ereignis, Verleihkarte verleihkarte) throws ProtokollierException, IOException
+	public void protokolliere(String ereignis, Verleihkarte verleihkarte) throws ProtokollierException
 	{
 		assert verleihkarte != null : "Vorbedingung verletzt: verleihkarte != null";
 		assert ereignis != null : "Vorbedingung verletzt: ereignis != null";
-		FileWriter fw = new FileWriter("./protokoll.txt", true);
-		try
+		//FileWriter fw = new FileWriter("./protokoll.txt", true);
+		try (FileWriter fw = new FileWriter("./protokoll.txt", true);)
 		{
 			
 			fw.write(ereignis +" "+ Datum.heute().toString() + " " + "\r\n\r\n"+ verleihkarte.toString() +"\r\n");
@@ -33,10 +33,7 @@ public class VerleihProtokollierer
 			throw new ProtokollierException(e.toString());
 			//System.err.println(e.toString());
 		}
-		finally
-		{
-			fw.close();
-		}
+		
 		
 		
 		//System.out.println(ereignis +" "+ Datum.heute().toString() + "\n\n"+ verleihkarte.toString());

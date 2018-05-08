@@ -12,11 +12,11 @@ public abstract class AbstractVideospielTest
     protected static final String TITEL = "Titel";
     protected static final String BEZEICHNUNG = "Videospiel";
     protected static final String SYSTEM = "System";
-    protected Medium _videoSpiel;
+    
 
     public AbstractVideospielTest()
     {
-        _videoSpiel = getMedium();
+        
     }
 
     
@@ -29,7 +29,7 @@ public abstract class AbstractVideospielTest
     @Test
     public void testGetMedienBezeichnung()
     {
-        assertEquals(BEZEICHNUNG, _videoSpiel.getMedienBezeichnung());
+        assertEquals(BEZEICHNUNG, getMedium().getMedienBezeichnung());
     }
 
     
@@ -37,17 +37,17 @@ public abstract class AbstractVideospielTest
     @Test
     public final void testSetKommentar()
     {
-        Medium medium = getMedium();
-        medium.setKommentar("Kommentar2");
-        assertEquals(medium.getKommentar(), "Kommentar2");
+        
+        getMedium().setKommentar("Kommentar2");
+        assertEquals(getMedium().getKommentar(), "Kommentar2");
     }
 
     @Test
     public final void testSetTitel()
     {
-    	Medium medium = getMedium();
-        medium.setTitel("Titel2");
-        assertEquals(medium.getTitel(), "Titel2");
+    	
+    	getMedium().setTitel("Titel2");
+        assertEquals(getMedium().getTitel(), "Titel2");
     }
 
 }

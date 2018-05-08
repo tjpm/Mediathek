@@ -8,11 +8,11 @@ import org.junit.Test;
  */
 public class PCVideospielTest extends AbstractVideospielTest
 {
-    
+    private PCVideospiel _videoSpiel;
 
     public PCVideospielTest()
     {
-        _videoSpiel = getMedium();
+        _videoSpiel = new PCVideospiel(TITEL, KOMMENTAR, SYSTEM);
     }
 
     
@@ -33,7 +33,7 @@ public class PCVideospielTest extends AbstractVideospielTest
     {
         assertEquals(TITEL, _videoSpiel.getTitel());
         assertEquals(KOMMENTAR, _videoSpiel.getKommentar());
-        assertEquals(SYSTEM, ((PCVideospiel) (_videoSpiel)).getSystem());
+        assertEquals(SYSTEM, _videoSpiel.getSystem());
     }
     
 
@@ -42,7 +42,7 @@ public class PCVideospielTest extends AbstractVideospielTest
     @Override
     protected PCVideospiel getMedium()
     {
-        return new PCVideospiel(TITEL, KOMMENTAR, SYSTEM);
+        return _videoSpiel;
     }
 
     
