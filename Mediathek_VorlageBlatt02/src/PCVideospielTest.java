@@ -21,11 +21,11 @@ public class PCVideospielTest extends AbstractVideospielTest
     {
     	assertEquals(_videoSpiel.berechneMietgebuehr(5), Geldbetrag.get(200));
     	assertEquals(_videoSpiel.berechneMietgebuehr(0), Geldbetrag.get(200));
-    	assertEquals(_videoSpiel.berechneMietgebuehr(3), Geldbetrag.get(200));
+    	assertEquals(_videoSpiel.berechneMietgebuehr(32), Geldbetrag.get(2700));
     	assertEquals(_videoSpiel.berechneMietgebuehr(8), Geldbetrag.get(700));
     	assertEquals(_videoSpiel.berechneMietgebuehr(14), Geldbetrag.get(1200));
     	assertEquals(_videoSpiel.berechneMietgebuehr(7), Geldbetrag.get(200));
-    	assertEquals(_videoSpiel.berechneMietgebuehr(99), Geldbetrag.get(9700));
+    	assertEquals(_videoSpiel.berechneMietgebuehr(33), Geldbetrag.get(3200));
     }
     
     @Test

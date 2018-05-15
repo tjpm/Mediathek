@@ -31,11 +31,9 @@ class Videospiel extends AbstractMedium implements Medium
      */
     public Videospiel(String titel, String kommentar, String system)
     {
-        assert titel != null : "Vorbedingung verletzt: titel != null";
-        assert kommentar != null : "Vorbedingung verletzt: kommentar != null";
+    	super(titel,kommentar);
         assert system != null : "Vorbedingung verletzt: system != null";
-        _titel = titel;
-        _kommentar = kommentar;
+        
         _system = system;
     }
 

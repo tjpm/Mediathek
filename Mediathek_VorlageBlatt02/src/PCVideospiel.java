@@ -10,17 +10,14 @@ public class PCVideospiel extends AbstractVideospiel
 	@Override
 	protected int getPreisNachTagen(int mietTage)
 	{
-		int varBetrag = mietTage / 5;
-		if(mietTage < 8)
-			varBetrag = 0;
+		if(mietTage <= 7)
+			return 0;
+		int varBetrag = (mietTage-7 +4) / 5;
+		
+		
+		
 		
 		return (varBetrag * 500);
 	}
-	
-	@Override
-	public Geldbetrag berechneMietgebuehr(int mietTage)
-    {
-		
-		return Geldbetrag.get(BASISPREIS + getPreisNachTagen(mietTage));
-    }
+
 }

@@ -40,12 +40,10 @@ class DVD extends AbstractMedium implements Medium
      */
     public DVD(String titel, String kommentar, String regisseur, int laufzeit)
     {
-        assert titel != null : "Vorbedingung verletzt: titel != null";
-        assert kommentar != null : "Vorbedingung verletzt: kommentar != null";
+        super(titel,kommentar);
         assert laufzeit > 0 : "Vorbedingung verletzt: laufzeit > 0";
         assert regisseur != null : "Vorbedingung verletzt: regisseur != null";
-        _titel = titel;
-        _kommentar = kommentar;
+        
         _regisseur = regisseur;
         _laufzeit = laufzeit;
     }

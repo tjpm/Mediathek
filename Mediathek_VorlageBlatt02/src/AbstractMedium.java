@@ -1,17 +1,25 @@
 
-public abstract class AbstractMedium
+abstract class AbstractMedium implements Medium
 {
 	/**
      * Ein Kommentar zum Medium
      */
-	protected String _kommentar;
+	private String _kommentar;
     
     /**
      * Der Titel des Mediums
      */
     
     
-    protected String _titel;
+	private String _titel;
+	
+	protected AbstractMedium(String titel, String kommentar)
+	{
+		assert titel != null : "Vorbedingung verletzt: titel != null";
+        assert kommentar != null : "Vorbedingung verletzt: kommentar != null";
+		_kommentar = kommentar;
+		_titel = titel;
+	}
    
     /**
      * Ändert den Kommentar

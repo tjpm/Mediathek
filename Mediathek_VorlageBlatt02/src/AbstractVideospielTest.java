@@ -14,14 +14,6 @@ public abstract class AbstractVideospielTest
     protected static final String SYSTEM = "System";
     
 
-    public AbstractVideospielTest()
-    {
-        
-    }
-
-    
-    
-    
     protected abstract Medium getMedium();
     
     

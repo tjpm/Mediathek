@@ -104,14 +104,9 @@ class VerleihServiceImpl extends AbstractObservableService implements
         for (Medium medium : medien)
         {
         	
-        	try
-            {
+        	
         		_protokolierer.protokolliere("Rücknahme:", _verleihkarten.get(medium));
-            }
-            catch(ProtokollierException pe)
-            {
-            	JOptionPane.showMessageDialog(null, "Rücknahme nicht möglich", pe.toString(), JOptionPane.ERROR_MESSAGE );
-            }
+            
         	
             _verleihkarten.remove(medium);
         }
@@ -151,7 +146,7 @@ class VerleihServiceImpl extends AbstractObservableService implements
     }
 
     @Override
-    public void verleiheAn(Kunde kunde, List<Medium> medien, Datum ausleihDatum)
+    public void verleiheAn(Kunde kunde, List<Medium> medien, Datum ausleihDatum) throws ProtokollierException
     {
         assert kundeImBestand(kunde) : "Vorbedingung verletzt: kundeImBestand(kunde)";
         assert sindAlleNichtVerliehen(medien) : "Vorbedingung verletzt: sindAlleNichtVerliehen(medien) ";
@@ -163,14 +158,9 @@ class VerleihServiceImpl extends AbstractObservableService implements
             Verleihkarte verleihkarte = new Verleihkarte(kunde, medium,
                     ausleihDatum);
             
-            try
-            {
+          
             	_protokolierer.protokolliere("Ausleihung:", verleihkarte);
-            }
-            catch(ProtokollierException pe)
-            {
-            	JOptionPane.showMessageDialog(null, "Verleihe nicht möglich", pe.toString(), JOptionPane.ERROR_MESSAGE );
-            }
+
             
             _verleihkarten.put(medium, verleihkarte);
         }

@@ -38,12 +38,9 @@ class CD extends AbstractMedium implements Medium
      */
     public CD(String titel, String kommentar, String interpret, int spiellaenge)
     {
-        assert titel != null : "Vorbedingung verletzt: titel != null";
-        assert kommentar != null : "Vorbedingung verletzt: kommentar != null";
+        super(titel, kommentar);
         assert interpret != null : "Vorbedingung verletzt: interpret != null";
         assert spiellaenge > 0 : "Vorbedingung verletzt: spiellaenge > 0";
-        _titel = titel;
-        _kommentar = kommentar;
         _spiellaenge = spiellaenge;
         _interpret = interpret;
     }

@@ -27,11 +27,8 @@ public abstract class AbstractVideospiel extends AbstractMedium
      */
     protected AbstractVideospiel(String titel, String kommentar, String system)
     {
-    	assert titel != null : "Vorbedingung verletzt: titel != null";
-        assert kommentar != null : "Vorbedingung verletzt: kommentar != null";
+    	super(titel,kommentar);
         assert system != null : "Vorbedingung verletzt: system != null";
-        _titel = titel;
-        _kommentar = kommentar;
         _system = system;
     }
 
@@ -64,8 +61,9 @@ public abstract class AbstractVideospiel extends AbstractMedium
 
 	@Override
 	public Geldbetrag berechneMietgebuehr(int mietTage)
-	{
-		return Geldbetrag.get(200 * mietTage);
-	}
+    {
+		
+		return Geldbetrag.get(BASISPREIS + getPreisNachTagen(mietTage));
+    }
 
 }

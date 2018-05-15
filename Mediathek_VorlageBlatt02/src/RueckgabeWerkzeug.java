@@ -6,7 +6,9 @@ import javax.swing.JOptionPane;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
 
 /**
@@ -121,7 +123,13 @@ public class RueckgabeWerkzeug {
         }
         catch(ProtokollierException pe)
         {
-        	JOptionPane.showMessageDialog(null, "Rücknahme nicht möglich", pe.toString(), JOptionPane.ERROR_MESSAGE );
+        	Alert alert = new Alert(AlertType.ERROR);
+        	alert.setTitle("Rückgabe nicht moeglich");
+        	alert.setHeaderText(pe.toString());
+        	alert.setContentText("Datei Pfad: ");
+
+        	alert.showAndWait();
+        	//JOptionPane.showMessageDialog(null, "Rücknahme nicht möglich", pe.toString(), JOptionPane.ERROR_MESSAGE );
         }
 	}
 

@@ -10,14 +10,7 @@ public abstract class AbstractMediumTest
 
 	protected static final String KOMMENTAR = "Kommentar";
 	protected static final String TITEL = "Titel";
-	
 
-	public AbstractMediumTest()
-	    {
-		
-	    }
-
-	
 
 	@Test
 	public void testKonstruktor()

@@ -15,11 +15,5 @@ public class KonsolenVideospiel extends AbstractVideospiel
 		return (varBetrag * 700);
 	}
 
-	@Override
-	public Geldbetrag berechneMietgebuehr(int mietTage)
-	{
-		
 
-		return Geldbetrag.get(BASISPREIS + getPreisNachTagen(mietTage));
-	}
 }

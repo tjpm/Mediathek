@@ -2,6 +2,8 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
 
 /**
@@ -212,7 +214,14 @@ class AusleihWerkzeug
         }
         catch(ProtokollierException pe)
         {
-        	JOptionPane.showMessageDialog(null, "Ausleihe nicht moeglich", pe.toString(), JOptionPane.ERROR_MESSAGE );
+        	Alert alert = new Alert(AlertType.ERROR);
+        	alert.setTitle("Ausleihe nicht moeglich");
+        	alert.setHeaderText(pe.toString());
+        	alert.setContentText("Datei Pfad: ");
+
+        	alert.showAndWait();
+        	
+        	//JOPtionPaneshowMessageDialog(null, "Ausleihe nicht moeglich", pe.toString(), JOptionPane.ERROR_MESSAGE );
         }
         
     }
